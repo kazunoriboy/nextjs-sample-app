@@ -1,5 +1,5 @@
-import type { ApiContext, Category, Condition, Product } from 'types'
 import { fetcher } from '../../utils'
+import type { ApiContext, Category, Condition, Product } from 'types'
 
 export type GetAllProductsParams = {
   category?: Category

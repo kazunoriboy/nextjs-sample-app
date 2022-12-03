@@ -1,5 +1,5 @@
-import type { ApiContext, Product } from 'types'
 import { fetcher } from '../../utils'
+import type { ApiContext, Product } from 'types'
 
 export type AddProductsParams = {
   product: Omit<Product, 'id'>
