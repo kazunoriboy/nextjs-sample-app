@@ -7,16 +7,16 @@ export type GetUserParams = {
 
 const getUser = async (
   context: ApiContext,
-  { id }: GetUserParams
+  { id }: GetUserParams,
 ): Promise<User> => {
   return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, '')}/users/${id}`,
     {
       headers: {
         Accept: 'application/json',
-        'Content-type': 'application/json'
-      }
-    }
+        'Content-type': 'application/json',
+      },
+    },
   )
 }
 
