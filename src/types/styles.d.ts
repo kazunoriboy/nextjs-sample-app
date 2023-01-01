@@ -97,7 +97,7 @@ export type CSSPropertyJustifySelf =
   | 'stretch'
   | (string & {})
 
-export type CSSPropertyAlignSelf = 
+export type CSSPropertyAlignSelf =
   | CSSPropertyGlobals
   | SelfPosition
   | 'auto'
