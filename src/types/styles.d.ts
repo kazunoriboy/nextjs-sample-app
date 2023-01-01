@@ -97,6 +97,15 @@ export type CSSPropertyJustifySelf =
   | 'stretch'
   | (string & {})
 
+export type CSSPropertyAlignSelf = 
+  | CSSPropertyGlobals
+  | SelfPosition
+  | 'auto'
+  | 'baseline'
+  | 'normal'
+  | 'stretch'
+  | (string & {})
+
 type GridLine = 'auto' | (string & {})
 
 export type CSSPropertyGridColumn =
