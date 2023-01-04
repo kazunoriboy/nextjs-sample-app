@@ -16,7 +16,7 @@ module.exports = {
   "core": {
     "builder": "@storybook/builder-webpack5"
   },
-  "staticDits": ["public"],
+  "staticDirs": ["public"],
   "babel": async options => ({
     ...options,
     plugins: [
