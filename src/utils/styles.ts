@@ -9,13 +9,13 @@ type SpaceThemeKeys = keyof typeof theme.space
 type ColorThemeKeys = keyof typeof theme.colors
 type FontSizeThemeKeys = keyof typeof theme.fontSizes
 type LetterSpacingThemeKeys = keyof typeof theme.letterSpacings
-type lineHeightThemeKeys = keyof typeof theme.lineHeights
+type LineHeightThemeKeys = keyof typeof theme.lineHeights
 
 export type Space = SpaceThemeKeys | (string & {})
 export type Color = ColorThemeKeys | (string & {})
 export type FontSize = FontSizeThemeKeys | (string & {})
 export type LetterSpacing = LetterSpacingThemeKeys | (string & {})
-export type lineHeight = lineHeightThemeKeys | (string & {})
+export type LineHeight = LineHeightThemeKeys | (string & {})
 
 const BREAKPOINTS: { [key: string]: string } = {
   sm: '640px',
@@ -159,6 +159,6 @@ function isLetterSpacingThemeKeys(
 function isLineHeightThemeKeys(
   prop: any,
   theme: AppTheme,
-): prop is lineHeightThemeKeys {
+): prop is LineHeightThemeKeys {
   return Object.keys(theme.lineHeights).filter((key) => key == prop).length > 0
 }
