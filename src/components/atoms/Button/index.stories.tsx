@@ -50,8 +50,8 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 export const Primary = Template.bind({})
 Primary.args = { variant: 'primary', children: 'Primary Button' }
 
-export const Seconday = Template.bind({})
-Primary.args = { variant: 'secondary', children: 'Secondary Button' }
+export const Secondary = Template.bind({})
+Secondary.args = { variant: 'secondary', children: 'Secondary Button' }
 
 export const Disabled = Template.bind({})
 Disabled.args = { disabled: true, children: 'Disabled Button' }
