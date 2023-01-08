@@ -1,51 +1,49 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ScaleImage from ".";
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import ScaleImage from '.'
 
 export default {
   title: 'Atoms/ScaleImage',
   argTypes: {
     src: {
-      control: {type: 'text'},
+      control: { type: 'text' },
       description: '画像URL',
       table: {
-        type: {summary: 'string'}
-      }
+        type: { summary: 'string' },
+      },
     },
     width: {
-      control: {type:'number'},
+      control: { type: 'number' },
       defaultValue: 320,
       description: '画像の横幅',
       table: {
-        type: {summary:'number'}
-      }
+        type: { summary: 'number' },
+      },
     },
     height: {
-      control: {type:'number'},
+      control: { type: 'number' },
       defaultValue: 320,
       desctiption: '画像の縦幅',
       table: {
-        type: {summary: 'number'}
-      }
+        type: { summary: 'number' },
+      },
     },
     containerWidth: {
-      control: {type: 'number'},
+      control: { type: 'number' },
       description: '横幅',
       defaultValue: 320,
       table: {
-        type: {summary: 'number'},
-
-      }
-
+        type: { summary: 'number' },
+      },
     },
     containerHeight: {
-      control:{type: 'number'},
+      control: { type: 'number' },
       description: '縦幅',
       defaultValue: 320,
       table: {
-        type: {summary: 'number'}
-      }
-    }
-  }
+        type: { summary: 'number' },
+      },
+    },
+  },
 } as ComponentMeta<typeof ScaleImage>
 
 const Template: ComponentStory<typeof ScaleImage> = (args) => (
@@ -53,4 +51,4 @@ const Template: ComponentStory<typeof ScaleImage> = (args) => (
 )
 
 export const Normal = Template.bind({})
-Normal.args = {src: '/images/sample/1.jpeg'}
+Normal.args = { src: '/images/sample/1.jpeg' }

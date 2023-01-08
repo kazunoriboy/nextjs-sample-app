@@ -1,4 +1,4 @@
-import ContentLoader, { IContentLoaderProps } from "react-content-loader";
+import ContentLoader, { IContentLoaderProps } from 'react-content-loader'
 
 interface RectLoaderProps extends IContentLoaderProps {
   width: number
