@@ -1,10 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import styled from "styled-components"
-import Flex from "components/layout/Flex"
-import Text from "components/atoms/Text"
-import { CheckBoxOutlineBlankIcon, CheckBoxIcon } from "components/atoms/IconButton"
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
+import {
+  CheckBoxOutlineBlankIcon,
+  CheckBoxIcon,
+} from 'components/atoms/IconButton'
+import Text from 'components/atoms/Text'
+import Flex from 'components/layout/Flex'
 
-export interface CheckBoxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'defaultValue'> {
+export interface CheckBoxProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'defaultValue'> {
   label?: string
 }
 
@@ -19,7 +23,7 @@ const Label = styled.label`
 `
 
 const CheckBox = (props: CheckBoxProps) => {
-  const { id, label, onChange, checked, ...rest  } = props
+  const { id, label, onChange, checked, ...rest } = props
   const [isChecked, setIsChecked] = useState(checked)
   const ref = useRef<HTMLInputElement>(null)
   const onClick = useCallback(
@@ -29,9 +33,9 @@ const CheckBox = (props: CheckBoxProps) => {
       ref.current?.click()
       setIsChecked((isChecked) => !isChecked)
     },
-    [ref, setIsChecked]
+    [ref, setIsChecked],
   )
-  
+
   useEffect(() => {
     setIsChecked(checked ?? false)
   }, [checked])
