@@ -1,5 +1,5 @@
-import Flex from "components/layout/Flex";
-import styled from "styled-components";
+import styled from 'styled-components'
+import Flex from 'components/layout/Flex'
 
 const BreadcrumbRoot = styled(Flex)`
   list-style: none;
@@ -11,7 +11,7 @@ interface BreadcrumbProps {
   children?: React.ReactNode
 }
 
-const Breadcrumb = ({children}: BreadcrumbProps) => {
+const Breadcrumb = ({ children }: BreadcrumbProps) => {
   return <BreadcrumbRoot as="ol">{children}</BreadcrumbRoot>
 }
 
