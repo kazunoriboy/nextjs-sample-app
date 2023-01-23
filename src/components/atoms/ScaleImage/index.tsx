@@ -7,6 +7,7 @@ type ScaleImageProps =
   | Omit<ImageProps, 'quality'> & {
       containerWidth?: Responsive<string>
       containerHeight?: Responsive<string>
+      blurDataUrl?: string
     }
 
 const ScaleEffectImageContainer = styled.div<{
