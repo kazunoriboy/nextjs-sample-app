@@ -5,7 +5,6 @@ const lineHeights: string[] = [
   '26px',
   '28px',
   '37px',
-  '43px',
 ]
 
 export default lineHeights
