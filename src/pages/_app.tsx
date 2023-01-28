@@ -1,6 +1,14 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { SWRConfig } from 'swr'
+import GlobalSpinner from 'components/organisms/GrobalSpinner'
+import { AuthContextProvider } from 'contexts/AuthContext'
+import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext'
+import { ShoppingCartContextProvider } from 'contexts/ShoppingCartContext'
+import { theme } from 'themes'
+import type { ApiContext } from 'types'
+import { fetcher } from 'utils'
 
 const GlobalStyle = createGlobalStyle`
   html, body, textarea {
@@ -15,16 +23,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    curor: pointer;
+    cursor: pointer;
     text-decoration: none;
     transition: .25s;
-    color: #000
+    color: ${theme.colors.black}
   }
 
   ol, ul {
     list-style: none;
   }
 `
+
+const context: ApiContext = {
+  apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
+}
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
@@ -39,7 +52,23 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <meta property="og:type" content="website" />
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <SWRConfig
+          value={{
+            shouldRetryOnError: false,
+            fetcher,
+          }}
+        >
+          <GlobalSpinnerContextProvider>
+            <ShoppingCartContextProvider>
+              <AuthContextProvider context={context}>
+                <GlobalSpinner />
+                <Component {...pageProps} />
+              </AuthContextProvider>
+            </ShoppingCartContextProvider>
+          </GlobalSpinnerContextProvider>
+        </SWRConfig>
+      </ThemeProvider>
     </>
   )
 }
