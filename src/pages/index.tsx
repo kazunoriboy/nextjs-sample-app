@@ -1,22 +1,20 @@
-import ProductCardCarousel from "components/organisms/ProductCardCarousel";
-import { GetStaticProps, InferGetServerSidePropsType, NextPage } from "next";
-import { Product } from "types";
-import Box from "components/layout/Box";
-import Link from "next/link";
-import ProductCard from "components/organisms/ProductCard";
-import Layout from "components/templates/Layout";
-import Flex from "components/layout/Flex";
-import Text from "components/atoms/Text";
-import getAllProducts from "services/products/get-all-products";
-import { ApiContext } from "types";
-
+import { GetStaticProps, InferGetServerSidePropsType, NextPage } from 'next'
+import Link from 'next/link'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
+import ProductCard from 'components/organisms/ProductCard'
+import ProductCardCarousel from 'components/organisms/ProductCardCarousel'
+import Layout from 'components/templates/Layout'
+import getAllProducts from 'services/products/get-all-products'
+import { Product, ApiContext } from 'types'
 
 type HomePageProps = InferGetServerSidePropsType<typeof getStaticProps>
 
 const HomePage: NextPage<HomePageProps> = ({
   bookProducts,
   clothesProducts,
-  shoesProducts
+  shoesProducts,
 }: HomePageProps) => {
   const renderProductCardCarousel = (products: Product[]) => {
     return (
@@ -42,10 +40,10 @@ const HomePage: NextPage<HomePageProps> = ({
     <Layout>
       <Flex padding={2} justifyContent="center" backgroundColor="primary">
         <Flex
-          width={{base: '100%', md: '1024px'}}
+          width={{ base: '100%', md: '1024px' }}
           justifyContent="space-between"
           alignItems="center"
-          flexDirection={{base: 'column', md: 'row'}}
+          flexDirection={{ base: 'column', md: 'row' }}
         >
           <Box width="100%">
             <Text as="h1" marginBottom={0} color="white" variant="extraLarge">
@@ -57,11 +55,12 @@ const HomePage: NextPage<HomePageProps> = ({
           </Box>
           <Box width="100%">
             <Text as="p" color="white" variant="mediumLarge">
-              Gihyo C2Cは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
+              Gihyo
+              C2Cは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
               ソースコードは
               <Text
                 as="a"
-                style={{textDecoration: 'underline'}}
+                style={{ textDecoration: 'underline' }}
                 target="_blank"
                 href="https://github.com/gihyo-books/ts-nextbook-app"
                 variant="mediumLarge"
@@ -79,20 +78,26 @@ const HomePage: NextPage<HomePageProps> = ({
       </Flex>
       <Flex paddingBottom={2} justifyContent="center">
         <Box
-          paddingLeft={{base: 2, md: 0}}
-          paddingRight={{base: 2, md: 0}}
-          width={{base: '100%', md: '1040px'}}
+          paddingLeft={{ base: 2, md: 0 }}
+          paddingRight={{ base: 2, md: 0 }}
+          width={{ base: '100%', md: '1040px' }}
         >
           <Box marginBottom={3}>
-            <Text as="h2" variant="large">トップス</Text>
+            <Text as="h2" variant="large">
+              トップス
+            </Text>
             {renderProductCardCarousel(clothesProducts)}
           </Box>
           <Box>
-            <Text as="h2" variant="large">本</Text>
+            <Text as="h2" variant="large">
+              本
+            </Text>
             {renderProductCardCarousel(bookProducts)}
           </Box>
           <Box>
-            <Text as="h2" variant="large">シューズ</Text>
+            <Text as="h2" variant="large">
+              シューズ
+            </Text>
             {renderProductCardCarousel(shoesProducts)}
           </Box>
         </Box>
@@ -103,19 +108,19 @@ const HomePage: NextPage<HomePageProps> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const context: ApiContext = {
-    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000'
+    apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
   }
   const [clothesProducts, bookProducts, shoesProducts] = await Promise.all([
-    getAllProducts(context, {category: 'clothes', limit: 6, page:1}),
-    getAllProducts(context, {category: 'book', limit: 6, page:1}),
-    getAllProducts(context, {category: 'shoes', limit: 6, page:1}),
+    getAllProducts(context, { category: 'clothes', limit: 6, page: 1 }),
+    getAllProducts(context, { category: 'book', limit: 6, page: 1 }),
+    getAllProducts(context, { category: 'shoes', limit: 6, page: 1 }),
   ])
-  
+
   return {
     props: {
       clothesProducts,
       bookProducts,
-      shoesProducts
+      shoesProducts,
     },
     revalidate: 60,
   }
