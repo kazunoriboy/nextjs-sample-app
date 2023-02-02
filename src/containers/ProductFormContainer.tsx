@@ -23,7 +23,7 @@ const ProductFormContainer = ({ onSave }: ProductFormContanerProps) => {
       title: data.title,
       description: data.description,
       category: data.category,
-      condition: data.description,
+      condition: data.condition,
       price: Number(data.price),
       imageUrl: '/products/shoes/feet-184619_1920.jpeg',
       blurDataUrl: '',
