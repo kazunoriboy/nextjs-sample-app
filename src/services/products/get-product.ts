@@ -10,7 +10,7 @@ const getProduct = async (
   { id }: GetProductParams,
 ): Promise<Product> => {
   return await fetcher(
-    `${context.apiRootUrl.replace(/\/$/g, '')}/prodcts/${id}`,
+    `${context.apiRootUrl.replace(/\/$/g, '')}/products/${id}`,
     {
       headers: {
         Origin: '*',
