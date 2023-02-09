@@ -2,11 +2,11 @@ import { render, screen, RenderResult } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import Header from '.'
 import { AuthContextProvider } from 'contexts/AuthContext'
+import { useShoppingCartContext } from 'contexts/ShoppingCartContext'
 import { theme } from 'themes'
 import type { User, Product } from 'types'
 
 jest.mock('contexts/ShoppingCartContext')
-import { useShoppingCartContext } from 'contexts/ShoppingCartContext'
 
 const { ShoppingCartContextProvider } = jest.requireActual(
   'contexts/ShoppingCartContext',
