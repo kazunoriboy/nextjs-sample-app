@@ -94,7 +94,7 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
             rules={{ required: true }}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <TextArea
-                placeholder="最高の商品です！"
+                placeholder="最高の商品です"
                 hasError={!!error}
                 onChange={onChange}
               >
